@@ -1,9 +1,7 @@
-package components
+package com.aerosj.airport.components
 
-import android.R.attr.textColor
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.content.MediaType.Companion.Text
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,7 +26,9 @@ fun CustomInput(
     label: String,
     value: String,
     placeholder: String,
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    isPassword: Boolean = false
 ){
     Column(
         modifier = Modifier
@@ -62,7 +62,7 @@ fun CustomInput(
                     if (value.isEmpty()) {
                         Text(
                             text = placeholder,
-                            style = TextStyle(color = Color(0xFF000000), fontSize = 16.sp),
+                            style = TextStyle(color = Color(0xFFAAAAAA), fontSize = 16.sp),
                             modifier = Modifier.padding(start = 12.dp)
                         )
                     }
